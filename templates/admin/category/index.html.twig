@@ -1,0 +1,39 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Category index{% endblock %}
+
+{% block body %}
+    <h1>Category index</h1>
+    
+<div class="container-fluid">
+    <div class="row mb-5">
+    {% include "_messages_flash.html.twig" %}
+
+        <div class="col-12 d-flex align-items-center justify-content-between mb-4 mt-4">
+            <h3>liste des catégories</h3>
+             <a class=" btn btn-success"  href="{{ path('admin_category_new')}}">Ajouter</a>
+        </div>
+           {% for category in categories %}
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="card effect1">
+                   
+                    <div class="card-footer">
+                        <div class="row">
+                        <h4 class="card-footer__title col fs-6 fw-light bg-light">{{ category.description }}</h4>
+                        <small><a href="{{ path('admin_category_edit', {'id': category.id})}}" class=" col btn btn-primary w-100 mb-5">Gérer</a></small>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{(category.image)}}" class="card-image">
+                        <span>{{(category.name)}}<span>
+                    </div>
+                </div>
+                </div>
+           {% endfor %}
+           
+    </div>
+</div>
+
+
+
+{% endblock %}
