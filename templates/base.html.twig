@@ -7,6 +7,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
     <script src="https://use.fontawesome.com/0c6337ef3b.js defer"></script>
+    
     <title>{% block title %}Mon projet{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
@@ -30,6 +31,13 @@
     <!-- Custom styles for this template -->
     <link href="{{asset('assets/css/carousel.css')}}" rel="stylesheet">
      <link href="{{asset('assets/css/navbar.css')}}" rel="stylesheet">
+     <style>
+/* Custom style to prevent carousel from being distorted 
+   if for some reason image doesn't load */
+.carousel-item{
+    min-height: 280px;
+}
+</style>
 </head>
 <body>
 <header>

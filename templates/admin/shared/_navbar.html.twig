@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand ms-3" href="{{ path('admin') }}">Admin</a>
+<nav class="navbar navbar-expand-md navbar-dark  fixed-top bg-dark mb-5">
+        <a class="navbar-brand ms-3 " href="{{ path('admin') }}">Admin</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="collapse navbar-collapse " id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ path('home') }}">Acceuil<span class="sr-only">(current)</span></a>
@@ -11,8 +11,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('admin_category_index')}}">Catégories</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Produits</a>
+                <li class="nav-item ">
+                    <a class="nav-link " href="{{ path('admin_product_index')}}" tabindex="-1" aria-disabled="true">Produits</a>
                 </li>
             </ul>
         </div>

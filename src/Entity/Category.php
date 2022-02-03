@@ -27,13 +27,18 @@ class Category
     #[Assert\NotBlank(message: 'le champs nom est obligatoire')]
     private $image;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class)]
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class, orphanRemoval: true)]
     private $products;
 
     public function __construct()
     {
         $this->products = new ArrayCollection();
     }
+
+
+    
+
+   
 
     public function getId(): ?int
     {
@@ -76,8 +81,6 @@ class Category
         return $this;
     }
 
-   
-
     /**
      * @return Collection|Product[]
      */
@@ -107,4 +110,14 @@ class Category
 
         return $this;
     }
+
+   public function __toString()
+    {
+        return (string) $this->name;
+        
+    }
+
+    
+    
+    
 }

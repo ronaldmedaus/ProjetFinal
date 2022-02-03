@@ -16,20 +16,11 @@ class Product
     #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-    #[ORM\Column(type: 'text')]
-    private $description;
-
     #[ORM\Column(type: 'integer')]
-    private $prix;
+    private $price;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $image;
-
-    #[ORM\Column(type: 'datetime')]
-    private $createdAt;
-
-    #[ORM\Column(type: 'string', length: 255)]
-    private $subtitle;
 
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
@@ -52,26 +43,14 @@ class Product
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getPrice(): ?int
     {
-        return $this->description;
+        return $this->price;
     }
 
-    public function setDescription(string $description): self
+    public function setPrice(int $price): self
     {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    public function getPrix(): ?int
-    {
-        return $this->prix;
-    }
-
-    public function setPrix(int $prix): self
-    {
-        $this->prix = $prix;
+        $this->price = $price;
 
         return $this;
     }
@@ -84,30 +63,6 @@ class Product
     public function setImage(string $image): self
     {
         $this->image = $image;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getSubtitle(): ?string
-    {
-        return $this->subtitle;
-    }
-
-    public function setSubtitle(string $subtitle): self
-    {
-        $this->subtitle = $subtitle;
 
         return $this;
     }
