@@ -6,7 +6,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<div id="demo" class="carousel slide" data-ride="carousel">
+
+<div id="demo" class="carousel slide mt-5" data-ride="carousel">
 
   <!-- Indicators -->
   <ul class="carousel-indicators">
@@ -16,7 +17,7 @@
   </ul>
   
   <!-- The slideshow -->
-  <div class="container carousel-inner no-padding">
+  <div class="container-fluid carousel-inner no-padding ">
     <div class="carousel-item active">
       <div class="col-xs-3 col-sm-3 col-md-3">
         <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
@@ -77,7 +78,7 @@
     <div class="container py-5">
     <div class="row">
           <div class="col-12">
-            <h3 class="text-center text-white">Les catégories</h3>
+            <h3 class="text-center "><span style="color: #5e9693;">Les catégories</span><span style="color: #777;"></span></h3>
           </div>  
 
           {% for category in categories %}
@@ -88,7 +89,7 @@
                       <img src="{{ category.image }}" class="card-img-top imageCard" alt="image_category">
                       <div class="card-body">
                           <h5 class="card-title">{{ category.name }}</h5>
-                          <a href="{{ path('boutique_product_show_by_category',{'id': category.id}) }}" class="btn btn-primary w-100">Consulter</a>
+                          <a href="{{ path('boutique_product_show_by_category',{'id': category.id}) }}" class="btn btn-secondary w-100"><span style="color: #5e9693;">Consulter</span><span style="color: #777;"></span></a>
                       </div>
                   </div>
           
@@ -105,7 +106,7 @@
   <div class="container py-5">
       <div class="row">
         <div class="col-12">
-          <h3 class="text-center">Les nouveautés</h3>
+          <h3 class="text-center" id="title"><span style="color: #5e9693;">Les nouveautés</span><span style="color: #777;"></span></h3>
         </div>  
 
         {% for product in products %}
@@ -117,7 +118,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p>{{ product.price | priceEuro }}</p>
-                        <a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-primary w-100">Consulter</a>
+                        <a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-secondary w-100"><span style="color: #5e9693;"></span>Consulter<span style="color: #777;"></span></a>
                     </div>
                 </div>
         

@@ -1,7 +1,6 @@
 <?php 
 
 namespace App\Controller;
-
 use App\Repository\ProductRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,6 +23,7 @@ class ProductController extends AbstractController
         ]);
     }
 
+    
     #[Route('boutique/produit/{id}', name: 'boutique_product_detail')]
     public function detailProduct(int $id, ProductRepository $productRepository)
     {

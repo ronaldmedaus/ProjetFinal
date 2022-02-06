@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Post{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+
+    <div class="row">
+    
+        <div class="col-12 ">
+            <a class="btn btn-dark" href="{{ path('profile_detail') }}">Revenir au profil</a>
+        </div>
+
+        <div class="col-sm-12 mt-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title"><span style="color: #5e9693;">Ajouter une image au profil</span><span style="color: #d1c2b8;"></span></h5>
+                </div>
+                <div class="card-body">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <button class="btn btn-secondary mt-3" type="submit">Enregistrer</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+  </div>
+ 
+{% endblock %}

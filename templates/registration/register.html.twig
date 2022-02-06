@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+
+    <div class="row">
+    
+        <div class="col-12 ">
+            <a class="btn btn-secondary" href="{{ path('app_login') }}">Déja un compte ? Se connecter</a>
+        </div>
+
+        <div class="col-sm-12 mt-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title"><span style="color: #5e9693;">Créer un compte</span><span style="color: #d1c2b8;"></span></h5>
+                </div>
+                <div class="card-body">
+                     {{ form_start(registrationForm) }}
+                        {{ form_row(registrationForm.name) }}
+                        {{ form_row(registrationForm.telephone) }}
+                        {{ form_row(registrationForm.email) }}
+                        {{ form_row(registrationForm.plainPassword) }}
+                        {{ form_row(registrationForm.agreeTerms) }}
+
+                        <button type="submit" class="btn btn-secondary mt-3"><span style="color: #5e9693;">S'inscrire</span><span style="color: #d1c2b8;"></span></button>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+  </div>
+
+{% endblock %}

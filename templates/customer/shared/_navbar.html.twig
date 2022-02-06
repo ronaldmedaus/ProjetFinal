@@ -1,7 +1,7 @@
     <header>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
-    <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0 ">
+    <div class="container-fluid">
       <a class="navbar-brand" href="{{ path('home') }}"><span style="color: #5e9693;">Mon</span><span style="color: #777;">projet</span></a>
       <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
         data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -10,66 +10,57 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
+
+        {% if app.user %}
+
+        {% if app.user.roles[0] is same as "ROLE_ADMIN" %}
+
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('admin') }}">Admin</a>
+            <a class="nav-link" href="{{ path('admin') }}">Adminnistration</a>
           </li>
+
+          {% endif %}
+           <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+          </li>
+
+          {% else  %}
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
+          </li>
+
+          {% endif %}
+
           {% for category in categoryRepository.findAll() %}
           <li class="nav-item">
             <a class="nav-link" href="{{ path('boutique_product_show_by_category',{'id':category.id}) }}">
             {{ category.name }}
             </a>
           </li>
+
           {% endfor %}
 
-          {# This will be a 
-              <li class="nav-item">
-            <a class="nav-link" href="#!">Se connecter</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Offres</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">A propos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">L'equipe</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Contact</a>
-          </li>
-          #}
-         
-        </ul>
-      </div>
+          
+           
+         </ul>
+
        
+
+      </div>
+         <div class="d-flex">
+        <a class="nav-link text-secondary
+        " aria-current="page" href="{{ path('profile_detail') }}"><span style="color: #5e9693;">Mon compte</span><span style="color: #777;"></span><i class="fas fa-user"></i>
+          </a>
+          <a class="nav-link text-secondary" aria-current="page" href="{{ path('cart_detail') }}"><span style="color: #5e9693;">Mon panier</span><span style="color: #777;"></span> <i class="fas fa-shopping-bag"></i>
+          </a>
+          
+        </div>
     </div>
-    <ul class="navbar-nav d-flex flex-row ms-3">
-          <li class="nav-item  me-3 me-lg-0">
-            <a class="nav-link" href="#!">
-              <i class="fas fa-shopping-cart"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#!">
-              <i class="fas fa-user-alt"></i></i>
-            </a>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#!">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#!">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </li>
-        </ul>
+    
   </nav>
 
   
@@ -80,7 +71,7 @@
     <!-- Intro -->
     <div id="intro" class="bg-image vh-100" style="
           background-image: url('https://mdbootstrap.com/img/Photos/new-templates/psychologist/img1.jpg');
-        ">
+        " >
       <div class="mask" style="background-color: rgba(250, 182, 162, 0.15);"></div>
     </div>
     <!-- Intro -->
